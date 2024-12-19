@@ -1,23 +1,23 @@
 # UR-tube Downloader
 
-**UR-tube Downloader** es una aplicación web que permite descargar videos de YouTube en diferentes formatos de manera fácil y rápida. Puedes elegir entre descargar solo el audio o el video completo.
+UR-tube Downloader es una aplicación web que permite descargar videos de YouTube en diferentes formatos de manera fácil y rápida. Puedes elegir entre descargar solo el audio o el video completo.
 
 ## Tabla de Contenidos
-1. [Requisitos](#requisitos)
-2. [Instalación](#instalación)
-3. [Ejecutando el Proyecto](#ejecutando-el-proyecto)
-4. [Uso de la Aplicación](#uso-de-la-aplicación)
-5. [Estructura del Proyecto](#estructura-del-proyecto)
-6. [Contribución](#contribución)
-7. [Licencia](#licencia)
+- [Requisitos](#requisitos)
+- [Instalación](#instalación)
+- [Ejecutando el Proyecto](#ejecutando-el-proyecto)
+- [Uso de la Aplicación](#uso-de-la-aplicación)
+- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Contribución](#contribución)
+- [Licencia](#licencia)
 
 ## Requisitos
 
 Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 
-- [Node.js](https://nodejs.org/) (v14 o superior)
-- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
-- [FFmpeg](https://ffmpeg.org/) (para convertir audio a MP3, si es necesario)
+- Node.js (v14 o superior)
+- npm o yarn
+- FFmpeg (para convertir audio a MP3, si es necesario)
 
 Si no tienes FFmpeg instalado, puedes instalarlo desde su sitio oficial o usando un gestor de paquetes como `brew` en macOS o `apt` en Linux.
 
@@ -26,21 +26,23 @@ Si no tienes FFmpeg instalado, puedes instalarlo desde su sitio oficial o usando
 ### 1. Clona el repositorio
 
 Primero, clona el repositorio en tu máquina local:
+
 ```bash
---git clone https://github.com/tu-usuario/ur-tube-downloader.git
+git clone https://github.com/tu-usuario/ur-tube-downloader.git
 cd ur-tube-downloader
- Instalar dependencias
+2. Instalar dependencias
 Para instalar las dependencias necesarias para el backend y frontend, ejecuta los siguientes comandos dentro de la carpeta del proyecto:
 
 Backend (Servidor Express):
-Abre una terminal en el directorio del proyecto.
-Navega a la carpeta del servidor backend y ejecuta:
+Abre una terminal en el directorio del proyecto y navega a la carpeta del servidor backend y ejecuta:
+
 bash
 Copiar código
 cd backend
 npm install
 Frontend (Aplicación React):
 En la misma terminal, ve a la carpeta del frontend y ejecuta:
+
 bash
 Copiar código
 cd frontend
@@ -54,8 +56,7 @@ Copiar código
 npm start
 Esto iniciará el servidor en el puerto 5000. Asegúrate de que el backend esté corriendo antes de continuar.
 
-##ejecutando-el-proyecto
-### 2. Iniciar el Frontend (Aplicación React)
+2. Iniciar el Frontend (Aplicación React)
 Desde la carpeta frontend, ejecuta el siguiente comando para iniciar la aplicación React:
 
 bash
@@ -63,7 +64,6 @@ Copiar código
 npm start
 Esto abrirá tu navegador predeterminado y accederás a la interfaz de la aplicación en http://localhost:3000.
 
-##uso-de-la-aplicación
 Uso de la Aplicación
 Ingresa la URL del video: Copia la URL del video de YouTube (o de otro sitio compatible) que deseas descargar.
 Selecciona el formato: Elige si deseas descargar el video en formato MP3 o MP4.
@@ -72,8 +72,6 @@ Notas Importantes:
 El formato de descarga puede ser configurado entre MP3 (solo audio) y MP4 (video completo).
 Si eliges MP3, la aplicación usará FFmpeg para convertir el audio a este formato después de descargar el archivo en un formato intermedio.
 Asegúrate de que FFmpeg esté instalado y configurado correctamente en tu sistema para evitar errores en la conversión.
-
-##estructura-del-proyecto
 Estructura del Proyecto
 El proyecto está dividido en dos partes principales:
 
@@ -89,8 +87,6 @@ Copiar código
 |   |-- /node_modules      # Dependencias de frontend
 |   |-- package.json       # Dependencias de frontend
 |-- README.md             # Este archivo
-
-##contribución
 Contribución
 Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 
@@ -100,10 +96,9 @@ Realiza tus cambios.
 Haz un commit (git commit -am 'Agrega nueva funcionalidad').
 Envía tus cambios a tu repositorio (git push origin feature/nueva-funcionalidad).
 Abre un Pull Request.
-
-##licencia
 Licencia
 Este proyecto está bajo la licencia MIT - consulta el archivo LICENSE para más detalles.
+
 
 
 
