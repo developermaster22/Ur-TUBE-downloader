@@ -29,7 +29,7 @@ Primero, clona el repositorio en tu máquina local:
 ```bash
 --git clone https://github.com/tu-usuario/ur-tube-downloader.git
 cd ur-tube-downloader
-2. Instalar dependencias
+ Instalar dependencias
 Para instalar las dependencias necesarias para el backend y frontend, ejecuta los siguientes comandos dentro de la carpeta del proyecto:
 
 Backend (Servidor Express):
@@ -54,7 +54,8 @@ Copiar código
 npm start
 Esto iniciará el servidor en el puerto 5000. Asegúrate de que el backend esté corriendo antes de continuar.
 
-2. Iniciar el Frontend (Aplicación React)
+##ejecutando-el-proyecto
+### 2. Iniciar el Frontend (Aplicación React)
 Desde la carpeta frontend, ejecuta el siguiente comando para iniciar la aplicación React:
 
 bash
@@ -62,6 +63,7 @@ Copiar código
 npm start
 Esto abrirá tu navegador predeterminado y accederás a la interfaz de la aplicación en http://localhost:3000.
 
+##uso-de-la-aplicación
 Uso de la Aplicación
 Ingresa la URL del video: Copia la URL del video de YouTube (o de otro sitio compatible) que deseas descargar.
 Selecciona el formato: Elige si deseas descargar el video en formato MP3 o MP4.
@@ -70,6 +72,8 @@ Notas Importantes:
 El formato de descarga puede ser configurado entre MP3 (solo audio) y MP4 (video completo).
 Si eliges MP3, la aplicación usará FFmpeg para convertir el audio a este formato después de descargar el archivo en un formato intermedio.
 Asegúrate de que FFmpeg esté instalado y configurado correctamente en tu sistema para evitar errores en la conversión.
+
+##estructura-del-proyecto
 Estructura del Proyecto
 El proyecto está dividido en dos partes principales:
 
@@ -85,6 +89,8 @@ Copiar código
 |   |-- /node_modules      # Dependencias de frontend
 |   |-- package.json       # Dependencias de frontend
 |-- README.md             # Este archivo
+
+##contribución
 Contribución
 Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 
@@ -94,20 +100,11 @@ Realiza tus cambios.
 Haz un commit (git commit -am 'Agrega nueva funcionalidad').
 Envía tus cambios a tu repositorio (git push origin feature/nueva-funcionalidad).
 Abre un Pull Request.
+
+##licencia
 Licencia
 Este proyecto está bajo la licencia MIT - consulta el archivo LICENSE para más detalles.
 
-markdown
-Copiar código
 
-### Explicación de la estructura del README:
-
-1. **Requisitos**: Se mencionan las dependencias necesarias para ejecutar el proyecto, como Node.js, npm, y FFmpeg.
-2. **Instalación**: Guía paso a paso para clonar el repositorio y configurar las dependencias tanto para el backend como para el frontend.
-3. **Ejecutando el Proyecto**: Explicación sobre cómo iniciar el servidor backend y la aplicación frontend.
-4. **Uso de la Aplicación**: Instrucciones claras sobre cómo usar la aplicación una vez que esté en funcionamiento.
-5. **Estructura del Proyecto**: Muestra cómo está organizado el proyecto, para que los colaboradores sepan dónde encontrar el código backend y frontend.
-6. **Contribución**: Guía para cualquier persona que desee contribuir al proyecto.
-7. **Licencia**: Detalles sobre la licencia del proyecto (si tienes un archivo de licencia en tu repositorio).
 
 
