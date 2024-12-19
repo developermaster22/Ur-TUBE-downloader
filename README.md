@@ -47,7 +47,7 @@ bash
 Copiar código
 cd frontend
 npm install
-Ejecutando el Proyecto
+## Ejecutando el Proyecto
 1. Iniciar el Backend (Servidor Express)
 Desde la carpeta backend, ejecuta el siguiente comando para iniciar el servidor de Express:
 
@@ -64,7 +64,7 @@ Copiar código
 npm start
 Esto abrirá tu navegador predeterminado y accederás a la interfaz de la aplicación en http://localhost:3000.
 
-Uso de la Aplicación
+## Uso de la Aplicación
 Ingresa la URL del video: Copia la URL del video de YouTube (o de otro sitio compatible) que deseas descargar.
 Selecciona el formato: Elige si deseas descargar el video en formato MP3 o MP4.
 Descargar: Haz clic en el botón "Download" para comenzar la descarga del archivo. El archivo se descargará automáticamente una vez procesado.
@@ -72,7 +72,7 @@ Notas Importantes:
 El formato de descarga puede ser configurado entre MP3 (solo audio) y MP4 (video completo).
 Si eliges MP3, la aplicación usará FFmpeg para convertir el audio a este formato después de descargar el archivo en un formato intermedio.
 Asegúrate de que FFmpeg esté instalado y configurado correctamente en tu sistema para evitar errores en la conversión.
-Estructura del Proyecto
+## Estructura del Proyecto
 El proyecto está dividido en dos partes principales:
 
 bash
@@ -87,7 +87,7 @@ Copiar código
 |   |-- /node_modules      # Dependencias de frontend
 |   |-- package.json       # Dependencias de frontend
 |-- README.md             # Este archivo
-Contribución
+## Contribución
 Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 
 Haz un fork del repositorio.
@@ -96,7 +96,7 @@ Realiza tus cambios.
 Haz un commit (git commit -am 'Agrega nueva funcionalidad').
 Envía tus cambios a tu repositorio (git push origin feature/nueva-funcionalidad).
 Abre un Pull Request.
-Licencia
+## Licencia
 Este proyecto está bajo la licencia MIT - consulta el archivo LICENSE para más detalles.
 
 
