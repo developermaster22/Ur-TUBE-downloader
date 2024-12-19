@@ -1,0 +1,99 @@
+/* Paleta de colores */
+:root {
+    --primary-color: #8DB1A5;
+    --secondary-color: #A4F9C8;
+    --tertiary-color: #A7FFF6;
+    --button-color: #6CC9B6;
+    --button-hover-color: #4FBBA5;
+    --font-color: #333;
+}
+
+/* Estilos globales */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primary-color); /* Fondo suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.app-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--secondary-color); /* Fondo del contenedor */
+    border-radius: 8px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+/* Estilos del título */
+h1 {
+    font-size: 2rem;
+    color: var(--font-color); /* Color de texto */
+    margin-bottom: 20px;
+}
+
+/* Estilo para el formulario */
+.form-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo para el label */
+.label {
+    font-size: 1rem;
+    color: var(--font-color); /* Color de texto */
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+/* Estilo para el campo de entrada */
+.input-field {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.input-field:focus {
+    border-color: var(--button-color); /* Color del borde al enfocar */
+    outline: none;
+}
+
+/* Botón de envío */
+.submit-btn {
+    padding: 12px 20px;
+    background-color: var(--button-color); /* Fondo del botón */
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: var(--button-hover-color); /* Color al pasar el mouse */
+}
+
+/* Estilo de mensaje de error */
+.error-message {
+    color: #f44336;
+    font-size: 0.875rem;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}

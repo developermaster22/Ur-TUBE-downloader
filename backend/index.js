@@ -1,42 +1,72 @@
-const ytdl = require('ytdl-core');
 const express = require('express');
 const cors = require('cors');
+const ytdlp = require('yt-dlp-exec');
+const fs = require('fs');
+const { exec } = require('child_process');
 const app = express();
-const port = 5000;
+const PORT = 5000;
 
-app.use(cors()); // Para permitir solicitudes CORS
-app.use(express.json()); // Para parsear el cuerpo de las solicitudes como JSON
+app.use(cors());
+app.use(express.json());
 
-// Ruta para descargar video o audio
-app.post('/download', (req, res) => {
-  const { url, format } = req.body; // Destructuración de URL y formato del cuerpo de la solicitud
-  
-  if (!url) {
-    return res.status(400).json({ error: 'URL no proporcionada' }); // Si no hay URL, responder con un error
+app.post('/download', async (req, res) => {
+  const { url, format } = req.body;
+
+  try {
+    // Definir formato de salida
+    const outputFormat = format === 'mp4' ? 'mp4' : 'mp3';
+    const tempAudioFile = 'temp_audio.m4a'; // Archivo temporal en m4a
+    const outputFile = `output.${outputFormat}`;
+
+    // Usar yt-dlp para descargar el audio en formato m4a
+    const ytdlpOptions = {
+      format: 'bestaudio[ext=m4a]',
+      output: tempAudioFile,
+      postprocessorArgs: ['-vn'], // Solo audio
+    };
+
+    await ytdlp(url, ytdlpOptions); // Esperamos que la descarga se complete
+
+    if (outputFormat === 'mp3') {
+      // Si el formato de salida es mp3, usamos ffmpeg para convertir
+      const ffmpegCommand = `ffmpeg -i ${tempAudioFile} -acodec libmp3lame -ar 44100 -ac 2 -ab 192k ${outputFile}`;
+      exec(ffmpegCommand, (err, stdout, stderr) => {
+        if (err) {
+          console.error('Error al convertir el audio:', err);
+          return res.status(500).json({ error: 'Error al convertir el archivo de audio.' });
+        }
+
+        // Enviar archivo convertido al cliente
+        res.download(outputFile, (downloadErr) => {
+          if (downloadErr) {
+            console.error(downloadErr);
+            return res.status(500).json({ error: 'Error al enviar el archivo.' });
+          } else {
+            // Eliminar archivos temporales después de enviar
+            fs.unlinkSync(outputFile);
+            fs.unlinkSync(tempAudioFile);
+          }
+        });
+      });
+    } else {
+      // Si el formato es mp4 o cualquier otro, simplemente enviamos el archivo descargado
+      res.download(tempAudioFile, (downloadErr) => {
+        if (downloadErr) {
+          console.error(downloadErr);
+          return res.status(500).json({ error: 'Error al enviar el archivo.' });
+        } else {
+          // Eliminar archivos temporales después de enviar
+          fs.unlinkSync(tempAudioFile);
+        }
+      });
+    }
+
+  } catch (error) {
+    console.error('Error en el servidor:', error);
+    res.status(500).json({ error: error.message || 'Error al procesar la solicitud.' });
   }
-
-  // Decidir si se descarga audio (mp3) o video (mp4) basado en el formato
-  const audioFormat = format === 'mp3';
-
-  // Si es audio, descarga solo el audio
-  const stream = audioFormat
-    ? ytdl(url, { filter: 'audioonly', quality: 'highestaudio' })
-    : ytdl(url, { quality: 'highestvideo' }); // Si no es mp3, descarga el video
-  
-  // Establecer las cabeceras de la respuesta dependiendo del tipo de archivo
-  res.setHeader('Content-Type', audioFormat ? 'audio/mpeg' : 'video/mp4');
-  res.setHeader('Content-Disposition', `attachment; filename="${audioFormat ? 'audio.mp3' : 'video.mp4'}"`);
-
-  // Enviar el stream de datos al cliente
-  stream.pipe(res);
-
-  // Manejador de error del stream
-  stream.on('error', (err) => {
-    console.error('Error durante la descarga:', err);
-    res.status(500).json({ error: 'Error al descargar el archivo' });
-  });
 });
 
-app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
+app.listen(PORT, () => {
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
