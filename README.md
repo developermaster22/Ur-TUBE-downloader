@@ -1,70 +1,113 @@
-# Getting Started with Create React App
+# UR-tube Downloader
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**UR-tube Downloader** es una aplicación web que permite descargar videos de YouTube en diferentes formatos de manera fácil y rápida. Puedes elegir entre descargar solo el audio o el video completo.
 
-## Available Scripts
+## Tabla de Contenidos
+1. [Requisitos](#requisitos)
+2. [Instalación](#instalación)
+3. [Ejecutando el Proyecto](#ejecutando-el-proyecto)
+4. [Uso de la Aplicación](#uso-de-la-aplicación)
+5. [Estructura del Proyecto](#estructura-del-proyecto)
+6. [Contribución](#contribución)
+7. [Licencia](#licencia)
 
-In the project directory, you can run:
+## Requisitos
 
-### `npm start`
+Antes de comenzar, asegúrate de tener instalados los siguientes programas:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- [Node.js](https://nodejs.org/) (v14 o superior)
+- [npm](https://www.npmjs.com/) o [yarn](https://yarnpkg.com/)
+- [FFmpeg](https://ffmpeg.org/) (para convertir audio a MP3, si es necesario)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Si no tienes FFmpeg instalado, puedes instalarlo desde su sitio oficial o usando un gestor de paquetes como `brew` en macOS o `apt` en Linux.
 
-### `npm test`
+## Instalación
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. Clona el repositorio
 
-### `npm run build`
+Primero, clona el repositorio en tu máquina local:
+```bash
+--git clone https://github.com/tu-usuario/ur-tube-downloader.git
+cd ur-tube-downloader
+2. Instalar dependencias
+Para instalar las dependencias necesarias para el backend y frontend, ejecuta los siguientes comandos dentro de la carpeta del proyecto:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Backend (Servidor Express):
+Abre una terminal en el directorio del proyecto.
+Navega a la carpeta del servidor backend y ejecuta:
+bash
+Copiar código
+cd backend
+npm install
+Frontend (Aplicación React):
+En la misma terminal, ve a la carpeta del frontend y ejecuta:
+bash
+Copiar código
+cd frontend
+npm install
+Ejecutando el Proyecto
+1. Iniciar el Backend (Servidor Express)
+Desde la carpeta backend, ejecuta el siguiente comando para iniciar el servidor de Express:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+Copiar código
+npm start
+Esto iniciará el servidor en el puerto 5000. Asegúrate de que el backend esté corriendo antes de continuar.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Iniciar el Frontend (Aplicación React)
+Desde la carpeta frontend, ejecuta el siguiente comando para iniciar la aplicación React:
 
-### `npm run eject`
+bash
+Copiar código
+npm start
+Esto abrirá tu navegador predeterminado y accederás a la interfaz de la aplicación en http://localhost:3000.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Uso de la Aplicación
+Ingresa la URL del video: Copia la URL del video de YouTube (o de otro sitio compatible) que deseas descargar.
+Selecciona el formato: Elige si deseas descargar el video en formato MP3 o MP4.
+Descargar: Haz clic en el botón "Download" para comenzar la descarga del archivo. El archivo se descargará automáticamente una vez procesado.
+Notas Importantes:
+El formato de descarga puede ser configurado entre MP3 (solo audio) y MP4 (video completo).
+Si eliges MP3, la aplicación usará FFmpeg para convertir el audio a este formato después de descargar el archivo en un formato intermedio.
+Asegúrate de que FFmpeg esté instalado y configurado correctamente en tu sistema para evitar errores en la conversión.
+Estructura del Proyecto
+El proyecto está dividido en dos partes principales:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+bash
+Copiar código
+/ur-tube-downloader
+|-- /backend               # Servidor Express
+|   |-- index.js           # Configuración y lógica del servidor
+|   |-- /node_modules      # Dependencias de backend
+|   |-- package.json       # Dependencias de backend
+|-- /frontend              # Aplicación React
+|   |-- /src
+|   |-- /node_modules      # Dependencias de frontend
+|   |-- package.json       # Dependencias de frontend
+|-- README.md             # Este archivo
+Contribución
+Si deseas contribuir a este proyecto, por favor sigue estos pasos:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Haz un fork del repositorio.
+Crea una nueva rama (git checkout -b feature/nueva-funcionalidad).
+Realiza tus cambios.
+Haz un commit (git commit -am 'Agrega nueva funcionalidad').
+Envía tus cambios a tu repositorio (git push origin feature/nueva-funcionalidad).
+Abre un Pull Request.
+Licencia
+Este proyecto está bajo la licencia MIT - consulta el archivo LICENSE para más detalles.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+markdown
+Copiar código
 
-## Learn More
+### Explicación de la estructura del README:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. **Requisitos**: Se mencionan las dependencias necesarias para ejecutar el proyecto, como Node.js, npm, y FFmpeg.
+2. **Instalación**: Guía paso a paso para clonar el repositorio y configurar las dependencias tanto para el backend como para el frontend.
+3. **Ejecutando el Proyecto**: Explicación sobre cómo iniciar el servidor backend y la aplicación frontend.
+4. **Uso de la Aplicación**: Instrucciones claras sobre cómo usar la aplicación una vez que esté en funcionamiento.
+5. **Estructura del Proyecto**: Muestra cómo está organizado el proyecto, para que los colaboradores sepan dónde encontrar el código backend y frontend.
+6. **Contribución**: Guía para cualquier persona que desee contribuir al proyecto.
+7. **Licencia**: Detalles sobre la licencia del proyecto (si tienes un archivo de licencia en tu repositorio).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
